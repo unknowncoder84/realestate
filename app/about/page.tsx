@@ -120,19 +120,19 @@ export default function AboutPage() {
       <AboutBgVideo />
       
       {/* Hero */}
-      <section className="relative pt-32 pb-20 px-6">
+      <section className="relative pt-28 sm:pt-32 pb-12 sm:pb-20 px-4 sm:px-6">
         <div className="absolute top-20 left-1/3 w-[700px] h-[700px] bg-[#C8A87E]/[0.03] rounded-full blur-[150px] pointer-events-none" />
 
         <div className="max-w-[88rem] mx-auto">
           <span className="text-[#C8A87E]/60 text-sm font-medium uppercase tracking-wider mb-4 block">About Us</span>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-end">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 items-end">
             <h1
-              className="text-white text-5xl md:text-7xl font-medium leading-[1.05]"
+              className="text-white text-4xl sm:text-5xl md:text-7xl font-medium leading-[1.05]"
               style={{ letterSpacing: '-0.04em' }}
             >
               Built on Trust,<br />Driven by Results.
             </h1>
-            <p className="text-white/50 text-lg md:text-xl leading-relaxed">
+            <p className="text-white/50 text-base sm:text-lg md:text-xl leading-relaxed">
               Since 2007, Elite Finance has served as a trusted partner for individuals, families, and institutions seeking sophisticated financial guidance and exceptional outcomes.
             </p>
           </div>
@@ -140,10 +140,10 @@ export default function AboutPage() {
       </section>
 
       {/* Story */}
-      <section className="px-6 pb-24">
+      <section className="px-4 sm:px-6 pb-16 sm:pb-24">
         <div className="max-w-[88rem] mx-auto">
-          <div className="glass-card rounded-3xl p-10 md:p-16">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="glass-card rounded-2xl sm:rounded-3xl p-6 sm:p-10 md:p-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
               <div>
                 <h2
                   className="text-white text-3xl md:text-4xl font-medium mb-6"
@@ -186,19 +186,19 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="px-6 pb-24">
+      <section className="px-4 sm:px-6 pb-16 sm:pb-24">
         <div className="max-w-[88rem] mx-auto">
-          <div className="text-center mb-14">
+          <div className="text-center mb-10 sm:mb-14">
             <span className="text-[#C8A87E]/60 text-sm font-medium uppercase tracking-wider mb-3 block">Our Values</span>
             <h2
-              className="text-white text-4xl md:text-5xl font-medium"
+              className="text-white text-3xl sm:text-4xl md:text-5xl font-medium"
               style={{ letterSpacing: '-0.03em' }}
             >
               What Guides Us
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {values.map((value, i) => (
               <div key={i} className="glass-card rounded-2xl p-7 min-h-56 flex flex-col justify-between">
                 <div className="w-8 h-8 rounded-full glass flex items-center justify-center mb-5">
@@ -217,19 +217,19 @@ export default function AboutPage() {
       </section>
 
       {/* Timeline */}
-      <section className="px-6 pb-24">
+      <section className="px-4 sm:px-6 pb-16 sm:pb-24">
         <div className="max-w-[88rem] mx-auto">
-          <div className="text-center mb-14">
+          <div className="text-center mb-10 sm:mb-14">
             <span className="text-[#C8A87E]/60 text-sm font-medium uppercase tracking-wider mb-3 block">Milestones</span>
             <h2
-              className="text-white text-4xl md:text-5xl font-medium"
+              className="text-white text-3xl sm:text-4xl md:text-5xl font-medium"
               style={{ letterSpacing: '-0.03em' }}
             >
               Our Journey
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {milestones.map((m, i) => (
               <div key={i} className="glass-card rounded-2xl p-7 min-h-40 flex flex-col justify-between shimmer-line">
                 <span className="text-[#C8A87E]/50 text-3xl font-light">{m.year}</span>
@@ -241,19 +241,19 @@ export default function AboutPage() {
       </section>
 
       {/* Team */}
-      <section className="px-6 pb-24">
+      <section className="px-4 sm:px-6 pb-16 sm:pb-24">
         <div className="max-w-[88rem] mx-auto">
-          <div className="text-center mb-14">
+          <div className="text-center mb-10 sm:mb-14">
             <span className="text-[#C8A87E]/60 text-sm font-medium uppercase tracking-wider mb-3 block">Leadership</span>
             <h2
-              className="text-white text-4xl md:text-5xl font-medium"
+              className="text-white text-3xl sm:text-4xl md:text-5xl font-medium"
               style={{ letterSpacing: '-0.03em' }}
             >
               Our Team
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {team.map((member, i) => (
               <div key={i} className="glass-card rounded-2xl p-8 group">
                 <div className="w-14 h-14 rounded-full glass flex items-center justify-center mb-5 group-hover:border-[#C8A87E]/30 transition-colors">
@@ -273,16 +273,16 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="px-6 pb-24">
+      <section className="px-4 sm:px-6 pb-16 sm:pb-24">
         <div className="max-w-[88rem] mx-auto">
-          <div className="glass-strong rounded-3xl p-12 md:p-16 text-center glow-gold-sm">
+          <div className="glass-strong rounded-2xl sm:rounded-3xl p-8 sm:p-12 md:p-16 text-center glow-gold-sm">
             <h2
-              className="text-white text-3xl md:text-5xl font-medium mb-5"
+              className="text-white text-2xl sm:text-3xl md:text-5xl font-medium mb-4 sm:mb-5"
               style={{ letterSpacing: '-0.03em' }}
             >
               Join Our Story
             </h2>
-            <p className="text-white/50 text-base md:text-lg max-w-md mx-auto mb-8 leading-relaxed">
+            <p className="text-white/50 text-sm sm:text-base md:text-lg max-w-md mx-auto mb-6 sm:mb-8 leading-relaxed">
               Whether you&apos;re an individual seeking guidance or a business needing advisory, we&apos;re here for you.
             </p>
             <Link

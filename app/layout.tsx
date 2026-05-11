@@ -10,6 +10,7 @@ const inter = Inter({ subsets: ["latin"], weight: ['300', '400', '500', '600', '
 export const metadata: Metadata = {
   title: 'Elite Finance | Premium Wealth Management & Advisory',
   description: 'Full-service financial consulting firm specializing in wealth management, tax planning, lending solutions, and insurance services.',
+  viewport: 'width=device-width, initial-scale=1, maximum-scale=1',
   icons: {
     icon: [
       { url: '/icon-light-32x32.png', media: '(prefers-color-scheme: light)' },

@@ -36,24 +36,26 @@ export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="relative border-t border-white/[0.06] pt-20 pb-8 px-6">
-      {/* Glow accent at top */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[1px] bg-gradient-to-r from-transparent via-[#C8A87E]/30 to-transparent" />
+    <footer className="relative border-t border-white/[0.06] pt-12 sm:pt-20 pb-8 px-4 sm:px-6">
+      {/* Glow accent */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[300px] sm:w-[600px] h-[1px] bg-gradient-to-r from-transparent via-[#C8A87E]/30 to-transparent" />
 
       <div className="max-w-[88rem] mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-12 mb-16">
-          {/* Brand */}
-          <div className="md:col-span-2">
-            <Link href="/" className="flex items-center gap-2.5 mb-5">
-              <svg viewBox="0 0 256 256" className="w-7 h-7 text-[#C8A87E]" fill="currentColor">
+        {/* Top grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 sm:gap-12 mb-10 sm:mb-16">
+
+          {/* Brand — full width on mobile */}
+          <div className="col-span-2 sm:col-span-3 md:col-span-2">
+            <Link href="/" className="flex items-center gap-2.5 mb-4 sm:mb-5">
+              <svg viewBox="0 0 256 256" className="w-6 h-6 sm:w-7 sm:h-7 text-[#C8A87E]" fill="currentColor">
                 <path d="M 128.005 191.173 C 128.448 156.208 156.93 128 192 128 L 192 64 L 128 64 C 128 99.346 99.346 128 64 128 L 64 192 L 128 192 Z M 192 256 L 64 256 C 28.654 256 0 227.346 0 192 L 0 64 L 64 64 L 64 0 L 192 0 C 227.346 0 256 28.654 256 64 L 256 192 L 192 192 Z" />
               </svg>
-              <span className="text-white text-lg" style={{ fontWeight: 500, letterSpacing: '-0.03em' }}>
+              <span className="text-white text-base sm:text-lg" style={{ fontWeight: 500, letterSpacing: '-0.03em' }}>
                 Elite Finance
               </span>
             </Link>
-            <p className="text-white/40 text-sm leading-relaxed max-w-xs mb-6">
-              Premier financial advisory and wealth management services. Building lasting prosperity through expert guidance and innovative strategies.
+            <p className="text-white/40 text-sm leading-relaxed max-w-xs mb-5 sm:mb-6">
+              Premier financial advisory and wealth management services. Building lasting prosperity through expert guidance.
             </p>
             <div className="flex gap-3">
               {[
@@ -63,29 +65,26 @@ export default function Footer() {
                 <a
                   key={social.label}
                   href="#"
-                  className="w-9 h-9 rounded-full glass flex items-center justify-center text-white/40 hover:text-[#C8A87E] hover:border-[#C8A87E]/30 transition-all duration-300"
+                  className="w-8 h-8 sm:w-9 sm:h-9 rounded-full glass flex items-center justify-center text-white/40 hover:text-[#C8A87E] hover:border-[#C8A87E]/30 transition-all duration-300"
                 >
-                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d={social.icon} /></svg>
+                  <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4" viewBox="0 0 24 24" fill="currentColor"><path d={social.icon} /></svg>
                 </a>
               ))}
             </div>
           </div>
 
-          {/* Link Columns */}
+          {/* Link columns — 3 cols on mobile (one each) */}
           {footerSections.map((section) => (
             <div key={section.title}>
-              <h3
-                className="text-white/80 font-medium mb-4 text-sm"
-                style={{ letterSpacing: '-0.01em' }}
-              >
+              <h3 className="text-white/80 font-medium mb-3 sm:mb-4 text-xs sm:text-sm uppercase tracking-wider">
                 {section.title}
               </h3>
-              <ul className="space-y-3">
+              <ul className="space-y-2 sm:space-y-3">
                 {section.links.map((link) => (
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-white/35 hover:text-[#C8A87E] transition-colors duration-300 text-sm"
+                      className="text-white/35 hover:text-[#C8A87E] transition-colors duration-300 text-xs sm:text-sm"
                     >
                       {link.label}
                     </Link>
@@ -97,10 +96,10 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-white/[0.06] pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center text-white/25 text-xs">
+        <div className="border-t border-white/[0.06] pt-6 sm:pt-8">
+          <div className="flex flex-col sm:flex-row justify-between items-center text-white/25 text-xs gap-3 sm:gap-0">
             <p>&copy; {currentYear} Elite Finance. All rights reserved.</p>
-            <div className="flex gap-6 mt-4 md:mt-0">
+            <div className="flex gap-4 sm:gap-6">
               {['Privacy Policy', 'Terms of Service', 'Compliance'].map((item) => (
                 <a key={item} href="#" className="hover:text-white/50 transition-colors duration-300">
                   {item}

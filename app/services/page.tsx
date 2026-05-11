@@ -52,7 +52,7 @@ const process_steps = [
 export default function ServicesPage() {
   return (
     <div className="relative min-h-screen text-white">
-      {/* Global Background Video ONLY for Services Page */}
+      {/* Background Video */}
       <div className="fixed inset-0 z-[-1] pointer-events-none">
         <video autoPlay loop muted playsInline
           className="w-full h-full object-cover pointer-events-none"
@@ -61,14 +61,12 @@ export default function ServicesPage() {
       </div>
 
       {/* Hero */}
-      <section className="relative pt-32 pb-20 px-6">
-        <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-[#3D81E3]/[0.05] rounded-full blur-[150px] pointer-events-none" />
-
+      <section className="relative pt-28 sm:pt-32 pb-10 sm:pb-20 px-4 sm:px-6">
         <div className="max-w-[88rem] mx-auto">
-          <span className="text-[#3D81E3] text-sm font-medium uppercase tracking-wider mb-4 block">Our Services</span>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-end">
+          <span className="text-[#3D81E3] text-xs sm:text-sm font-medium uppercase tracking-wider mb-3 sm:mb-4 block">Our Services</span>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-12 items-end">
             <h1
-              className="text-white text-5xl md:text-7xl font-medium leading-[1.05]"
+              className="text-white text-4xl sm:text-5xl md:text-7xl font-medium leading-[1.05]"
               style={{ letterSpacing: '-0.04em' }}
             >
               Financial Excellence,<br />
@@ -76,7 +74,7 @@ export default function ServicesPage() {
                 Delivered.
               </span>
             </h1>
-            <p className="text-white/60 text-lg md:text-xl leading-relaxed">
+            <p className="text-white/60 text-base sm:text-lg md:text-xl leading-relaxed">
               Comprehensive financial services engineered for high-net-worth individuals, families, and businesses seeking institutional-quality advisory.
             </p>
           </div>
@@ -84,28 +82,25 @@ export default function ServicesPage() {
       </section>
 
       {/* Services Grid */}
-      <section className="px-6 pb-24">
+      <section className="px-4 sm:px-6 pb-14 sm:pb-24">
         <div className="max-w-[88rem] mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {services.map((service, i) => {
               const Icon = service.icon
               return (
-                <div key={i} className="liquid-glass rounded-2xl p-8 flex flex-col justify-between min-h-[380px] group transition-all duration-300 hover:bg-white/[0.04]">
+                <div key={i} className="liquid-glass rounded-2xl p-6 sm:p-8 flex flex-col justify-between min-h-[300px] sm:min-h-[380px] group transition-all duration-300 hover:bg-white/[0.04]">
                   <div>
-                    <div className="w-12 h-12 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center mb-6 group-hover:border-[#3D81E3]/40 group-hover:bg-[#3D81E3]/10 transition-colors">
-                      <Icon className="w-5 h-5 text-[#A4F4FD] group-hover:text-[#00d2ff] transition-colors" />
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center mb-4 sm:mb-6 group-hover:border-[#3D81E3]/40 group-hover:bg-[#3D81E3]/10 transition-colors">
+                      <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-[#A4F4FD] group-hover:text-[#00d2ff] transition-colors" />
                     </div>
-                    <h3
-                      className="text-white text-xl font-medium mb-3"
-                      style={{ letterSpacing: '-0.02em' }}
-                    >
+                    <h3 className="text-white text-lg sm:text-xl font-medium mb-2 sm:mb-3" style={{ letterSpacing: '-0.02em' }}>
                       {service.title}
                     </h3>
-                    <p className="text-white/50 text-sm leading-relaxed mb-6">{service.desc}</p>
+                    <p className="text-white/50 text-sm leading-relaxed mb-4 sm:mb-6">{service.desc}</p>
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {service.features.map((f) => (
-                      <span key={f} className="px-3 py-1 rounded-full text-xs text-white/50 border border-white/10 bg-white/[0.02]">
+                      <span key={f} className="px-2.5 py-1 rounded-full text-xs text-white/50 border border-white/10 bg-white/[0.02]">
                         {f}
                       </span>
                     ))}
@@ -118,27 +113,24 @@ export default function ServicesPage() {
       </section>
 
       {/* Process */}
-      <section className="px-6 py-24">
+      <section className="px-4 sm:px-6 py-12 sm:py-24">
         <div className="max-w-[88rem] mx-auto">
-          <div className="text-center mb-16">
-            <span className="text-[#3D81E3] text-sm font-medium uppercase tracking-wider mb-3 block">Our Process</span>
-            <h2
-              className="text-white text-4xl md:text-5xl font-medium"
-              style={{ letterSpacing: '-0.03em' }}
-            >
+          <div className="text-center mb-10 sm:mb-16">
+            <span className="text-[#3D81E3] text-xs sm:text-sm font-medium uppercase tracking-wider mb-3 block">Our Process</span>
+            <h2 className="text-white text-3xl sm:text-4xl md:text-5xl font-medium" style={{ letterSpacing: '-0.03em' }}>
               How We Work
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-5">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-5">
             {process_steps.map((step, i) => (
-              <div key={i} className="liquid-glass rounded-2xl p-7 min-h-56 flex flex-col justify-between hover:bg-white/[0.04] transition-all">
-                <span className="text-[#3D81E3]/50 text-4xl font-light">{step.step}</span>
+              <div key={i} className="liquid-glass rounded-2xl p-5 sm:p-7 min-h-[180px] sm:min-h-56 flex flex-col justify-between hover:bg-white/[0.04] transition-all">
+                <span className="text-[#3D81E3]/50 text-3xl sm:text-4xl font-light">{step.step}</span>
                 <div>
-                  <h3 className="text-white text-lg font-medium mb-2" style={{ letterSpacing: '-0.02em' }}>
+                  <h3 className="text-white text-base sm:text-lg font-medium mb-1 sm:mb-2" style={{ letterSpacing: '-0.02em' }}>
                     {step.title}
                   </h3>
-                  <p className="text-white/50 text-sm leading-relaxed">{step.desc}</p>
+                  <p className="text-white/50 text-xs sm:text-sm leading-relaxed">{step.desc}</p>
                 </div>
               </div>
             ))}
@@ -147,16 +139,13 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA */}
-      <section className="px-6 pb-32">
+      <section className="px-4 sm:px-6 pb-20 sm:pb-32">
         <div className="max-w-[88rem] mx-auto">
-          <div className="liquid-glass rounded-3xl p-12 md:p-16 text-center shadow-[0_0_40px_rgba(61,129,227,0.1)]">
-            <h2
-              className="text-white text-3xl md:text-5xl font-medium mb-5"
-              style={{ letterSpacing: '-0.03em' }}
-            >
+          <div className="liquid-glass rounded-2xl sm:rounded-3xl p-8 sm:p-12 md:p-16 text-center shadow-[0_0_40px_rgba(61,129,227,0.1)]">
+            <h2 className="text-white text-2xl sm:text-3xl md:text-5xl font-medium mb-4 sm:mb-5" style={{ letterSpacing: '-0.03em' }}>
               Ready to get started?
             </h2>
-            <p className="text-white/60 text-base md:text-lg max-w-md mx-auto mb-10 leading-relaxed">
+            <p className="text-white/60 text-sm sm:text-base md:text-lg max-w-md mx-auto mb-7 sm:mb-10 leading-relaxed">
               Book a complimentary consultation and discover how we can transform your financial future.
             </p>
             <Link

@@ -54,8 +54,8 @@ export default function Home() {
       <section className="relative min-h-screen flex flex-col pt-20">
         <div className="absolute top-0 left-1/4 w-[800px] h-[800px] bg-[#C8A87E]/[0.05] rounded-full blur-[150px] pointer-events-none" />
 
-        <div className="flex-1 px-6 pb-6 flex items-end">
-          <div className="relative w-full rounded-3xl overflow-hidden liquid-glass" style={{ height: 'calc(100vh - 96px)' }}>
+        <div className="flex-1 px-3 sm:px-6 pb-3 sm:pb-6 flex items-end">
+          <div className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden liquid-glass" style={{ height: 'calc(100vh - 80px)' }}>
             
             {/* Background Video with Parallax */}
             <video autoPlay loop muted playsInline
@@ -68,10 +68,10 @@ export default function Home() {
             <div className="absolute inset-0 bg-gradient-to-r from-[#060611]/95 via-[#060611]/70 to-transparent" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#060611]/90 via-[#060611]/40 to-transparent" />
 
-            <div className="relative z-10 flex flex-col items-start justify-center h-full p-8 md:p-14 md:pt-36">
+            <div className="relative z-10 flex flex-col items-start justify-center h-full p-5 sm:p-8 md:p-14 md:pt-36">
               
               <h1
-                className="text-white text-5xl md:text-7xl font-medium leading-[1.05] max-w-2xl mb-6 animate-fade-in-up"
+                className="text-white text-4xl sm:text-5xl md:text-7xl font-medium leading-[1.05] max-w-2xl mb-4 sm:mb-6 animate-fade-in-up"
                 style={{ letterSpacing: '-0.04em' }}
               >
                 Your Wealth<br />
@@ -80,24 +80,24 @@ export default function Home() {
                 </span>
               </h1>
 
-              <p className="text-white/60 text-base md:text-lg max-w-md mb-10 leading-relaxed animate-fade-in-up-delay-1">
+              <p className="text-white/60 text-sm sm:text-base md:text-lg max-w-md mb-7 sm:mb-10 leading-relaxed animate-fade-in-up-delay-1">
                 An automated, reward-powered digital dollar built for native passive earnings and effortless connection into DeFi.
               </p>
 
               <div className="animate-fade-in-up-delay-2">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-3 bg-gradient-to-r from-[#C8A87E] to-[#B8956A] text-[#060611] text-base md:text-lg font-medium pl-8 pr-2 py-2.5 rounded-full hover:shadow-lg hover:shadow-[#C8A87E]/20 transition-all duration-300 hover:scale-[1.02]"
+                  className="inline-flex items-center gap-2 sm:gap-3 bg-gradient-to-r from-[#C8A87E] to-[#B8956A] text-[#060611] text-sm sm:text-base md:text-lg font-medium pl-6 sm:pl-8 pr-2 py-2 sm:py-2.5 rounded-full hover:shadow-lg hover:shadow-[#C8A87E]/20 transition-all duration-300 hover:scale-[1.02]"
                 >
                   Join us
-                  <span className="bg-[#060611]/20 rounded-full p-2">
-                    <ArrowRight className="w-5 h-5" />
+                  <span className="bg-[#060611]/20 rounded-full p-1.5 sm:p-2">
+                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                   </span>
                 </Link>
               </div>
 
               {/* Brand Marquee */}
-              <div className="mt-24 w-full max-w-xl overflow-hidden animate-fade-in-up-delay-3">
+              <div className="mt-12 sm:mt-24 w-full max-w-xl overflow-hidden animate-fade-in-up-delay-3">
                 <p className="text-[#C8A87E]/60 text-xs uppercase tracking-widest mb-4">Integrated With</p>
                 <div className="marquee-track">
                   {[...brands, ...brands].map((brand, i) => (
@@ -125,21 +125,21 @@ export default function Home() {
       </section>
 
       {/* ── Info Section: Meet USD Halo ── */}
-      <section className="px-6 py-24 relative z-10">
+      <section className="px-3 sm:px-6 py-12 sm:py-24 relative z-10">
         <div className="max-w-[88rem] mx-auto">
           {/* Header Row */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16 items-start">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 mb-10 sm:mb-16 items-start">
             <div>
               <span className="text-[#C8A87E] text-sm font-medium uppercase tracking-wider mb-4 block">The Next Era</span>
               <h2
-                className="text-white text-4xl md:text-5xl font-medium leading-tight mb-8"
+                className="text-white text-3xl sm:text-4xl md:text-5xl font-medium leading-tight mb-6 sm:mb-8"
                 style={{ letterSpacing: '-0.03em' }}
               >
                 Meet USD Halo.
               </h2>
               <Link
                 href="/services"
-                className="inline-flex items-center gap-3 bg-gradient-to-r from-[#C8A87E] to-[#B8956A] text-[#060611] text-base font-medium pl-7 pr-2 py-2 rounded-full hover:shadow-lg hover:shadow-[#C8A87E]/20 transition-all duration-300 hover:scale-[1.02]"
+                className="inline-flex items-center gap-3 bg-gradient-to-r from-[#C8A87E] to-[#B8956A] text-[#060611] text-sm sm:text-base font-medium pl-6 sm:pl-7 pr-2 py-2 rounded-full hover:shadow-lg hover:shadow-[#C8A87E]/20 transition-all duration-300 hover:scale-[1.02]"
               >
                 Discover it
                 <span className="bg-[#060611]/20 rounded-full p-2">
@@ -148,49 +148,49 @@ export default function Home() {
               </Link>
             </div>
             <div>
-              <p className="text-white/70 text-2xl md:text-3xl leading-relaxed mt-2" style={{ letterSpacing: '-0.01em' }}>
+              <p className="text-white/70 text-xl sm:text-2xl md:text-3xl leading-relaxed mt-2" style={{ letterSpacing: '-0.01em' }}>
                 USD Halo is a reward-earning dollar coin that lets your savings grow while remaining tied to the U.S. dollar.
               </p>
             </div>
           </div>
 
           {/* Grid Row */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {/* Card 1: Spans 2 cols */}
-            <div className="lg:col-span-2 liquid-glass rounded-3xl relative overflow-hidden min-h-[380px] p-8 flex flex-col justify-between group transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#C8A87E]/10">
+            <div className="sm:col-span-2 lg:col-span-2 liquid-glass rounded-2xl sm:rounded-3xl relative overflow-hidden min-h-[280px] sm:min-h-[380px] p-6 sm:p-8 flex flex-col justify-between group transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#C8A87E]/10">
               <div 
                 className="absolute inset-0 bg-cover bg-center opacity-40 mix-blend-luminosity group-hover:opacity-60 transition-opacity duration-500" 
                 style={{ backgroundImage: `url('https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260423_164207_f243351d-ed59-48ec-83a0-a5e996bdbe3c.png')` }} 
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#060611]/90 via-[#060611]/40 to-transparent" />
               <div className="relative z-10">
-                <h3 className="text-white text-3xl font-medium leading-snug" style={{ letterSpacing: '-0.02em' }}>
+                <h3 className="text-white text-2xl sm:text-3xl font-medium leading-snug" style={{ letterSpacing: '-0.02em' }}>
                   Savings that<br />bloom.
                 </h3>
               </div>
               <div className="relative z-10 mt-auto">
-                <p className="text-white/70 text-base max-w-xs leading-relaxed">
+                <p className="text-white/70 text-sm sm:text-base max-w-xs leading-relaxed">
                   Gain steady returns as your dollar tokens are routed into top-performing DeFi strategies.
                 </p>
               </div>
             </div>
 
             {/* Card 2 */}
-            <div className="liquid-glass rounded-3xl p-8 min-h-[380px] flex flex-col justify-between group transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#C8A87E]/10">
-              <h3 className="text-white text-2xl font-medium leading-snug" style={{ letterSpacing: '-0.02em' }}>
+            <div className="liquid-glass rounded-2xl sm:rounded-3xl p-6 sm:p-8 min-h-[240px] sm:min-h-[380px] flex flex-col justify-between group transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#C8A87E]/10">
+              <h3 className="text-white text-xl sm:text-2xl font-medium leading-snug" style={{ letterSpacing: '-0.02em' }}>
                 Always fluid,<br />always pegged.
               </h3>
-              <p className="text-white/60 text-base leading-relaxed">
+              <p className="text-white/60 text-sm sm:text-base leading-relaxed">
                 Keep fully dollar-anchored with on-demand access to funds — no lockups or waits.
               </p>
             </div>
 
             {/* Card 3 */}
-            <div className="liquid-glass rounded-3xl p-8 min-h-[380px] flex flex-col justify-between group transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#C8A87E]/10">
-              <h3 className="text-white text-2xl font-medium leading-snug" style={{ letterSpacing: '-0.02em' }}>
+            <div className="liquid-glass rounded-2xl sm:rounded-3xl p-6 sm:p-8 min-h-[240px] sm:min-h-[380px] flex flex-col justify-between group transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#C8A87E]/10">
+              <h3 className="text-white text-xl sm:text-2xl font-medium leading-snug" style={{ letterSpacing: '-0.02em' }}>
                 Fully<br />automated.
               </h3>
-              <p className="text-white/60 text-base leading-relaxed">
+              <p className="text-white/60 text-sm sm:text-base leading-relaxed">
                 Skip the task of tuning positions yourself. USD Halo runs in the background for you.
               </p>
             </div>
@@ -199,10 +199,10 @@ export default function Home() {
       </section>
 
       {/* ── Backed By Section ── */}
-      <section className="px-6 py-20 relative z-10">
-        <div className="max-w-[88rem] mx-auto liquid-glass rounded-3xl p-10">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 items-center">
-            <div className="text-white/60 text-base leading-relaxed font-medium">
+      <section className="px-3 sm:px-6 py-12 sm:py-20 relative z-10">
+        <div className="max-w-[88rem] mx-auto liquid-glass rounded-2xl sm:rounded-3xl p-6 sm:p-10">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 sm:gap-8 items-center">
+            <div className="text-white/60 text-sm sm:text-base leading-relaxed font-medium">
               Funded by premier partners<br />and forward-thinking leaders.
             </div>
             <div className="md:col-span-3 overflow-hidden">
@@ -210,7 +210,7 @@ export default function Home() {
                 {[...backers, ...backers].map((b, i) => (
                   <span
                     key={i}
-                    className="mx-10 shrink-0 text-white/30 whitespace-nowrap"
+                    className="mx-6 sm:mx-10 shrink-0 text-white/30 whitespace-nowrap"
                     style={{
                       fontFamily: b.font,
                       fontWeight: b.weight,
@@ -229,9 +229,9 @@ export default function Home() {
       </section>
 
       {/* ── Use Cases Section ── */}
-      <section className="px-6 py-24 relative z-10">
+      <section className="px-3 sm:px-6 py-12 sm:py-24 relative z-10">
         <div className="max-w-[88rem] mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-12 items-start">
             
             {/* Left Column */}
             <div className="md:pr-12 md:pt-10">
@@ -239,12 +239,12 @@ export default function Home() {
                 USD Halo in Practice
               </span>
               <h2
-                className="text-white text-5xl md:text-6xl font-medium leading-none mb-8"
+                className="text-white text-4xl sm:text-5xl md:text-6xl font-medium leading-none mb-6 sm:mb-8"
                 style={{ letterSpacing: '-0.04em' }}
               >
                 Use modes.
               </h2>
-              <p className="text-white/60 text-lg leading-relaxed max-w-md mb-10">
+              <p className="text-white/60 text-base sm:text-lg leading-relaxed max-w-md mb-8 sm:mb-10">
                 USD Halo powers a wide range of modes for builders, companies and treasuries wanting safe and rewarding stablecoin integrations plus more.
               </p>
               
@@ -255,18 +255,18 @@ export default function Home() {
             </div>
 
             {/* Right Column: Video Card */}
-            <div className="relative rounded-3xl overflow-hidden min-h-[600px] md:min-h-[720px] shadow-[0_0_40px_rgba(200,168,126,0.1)] group">
+            <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden min-h-[400px] sm:min-h-[600px] md:min-h-[720px] shadow-[0_0_40px_rgba(200,168,126,0.1)] group">
               <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                 <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260423_183428_ab5e672a-f608-4dcb-b319-f3e040f02e2d.mp4" type="video/mp4" />
               </video>
               <div className="absolute inset-0 bg-[#060611]/85" />
               
               {/* Content Overlay */}
-              <div className="relative z-10 flex flex-col justify-end h-full p-10 md:p-14">
-                <h3 className="text-white text-4xl md:text-5xl font-medium leading-tight mb-5" style={{ letterSpacing: '-0.03em' }}>
+              <div className="relative z-10 flex flex-col justify-end h-full p-7 sm:p-10 md:p-14">
+                <h3 className="text-white text-3xl sm:text-4xl md:text-5xl font-medium leading-tight mb-4 sm:mb-5" style={{ letterSpacing: '-0.03em' }}>
                   Commerce.
                 </h3>
-                <p className="text-white/70 text-base md:text-lg max-w-md mb-10 leading-relaxed">
+                <p className="text-white/70 text-sm sm:text-base md:text-lg max-w-md mb-7 sm:mb-10 leading-relaxed">
                   Lift customer retention by offering USD Halo, a trusted dollar-backed stablecoin with strong yields, letting your patrons earn with zero effort on your platform.
                 </p>
                 <div>
