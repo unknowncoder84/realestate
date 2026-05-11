@@ -52,21 +52,23 @@ const process_steps = [
 export default function ServicesPage() {
   return (
     <div className="relative min-h-screen text-white">
-      {/* Background Video */}
+      {/* Full-bleed background video — fixed, covers entire page */}
       <div className="fixed inset-0 z-[-1] pointer-events-none">
         <video autoPlay loop muted playsInline
-          className="w-full h-full object-cover pointer-events-none"
-          src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260508_064122_c4750c0e-7476-4b44-94a2-a85a65c63bf2.mp4" />
-        <div className="absolute inset-0 bg-[#0c0c0c]/80 backdrop-blur-[2px]" />
+          className="w-full h-full object-cover object-center"
+          src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260508_064122_c4750c0e-7476-4b44-94a2-a85a65c63bf2.mp4"
+        />
+        {/* Stronger overlay for readability on all screen sizes */}
+        <div className="absolute inset-0 bg-[#060611]/82" />
       </div>
 
-      {/* Hero */}
-      <section className="relative pt-28 sm:pt-32 pb-10 sm:pb-20 px-4 sm:px-6">
-        <div className="max-w-[88rem] mx-auto">
-          <span className="text-[#3D81E3] text-xs sm:text-sm font-medium uppercase tracking-wider mb-3 sm:mb-4 block">Our Services</span>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-12 items-end">
+      {/* ── Hero ── */}
+      <section className="relative min-h-[55vh] flex flex-col justify-end pt-20 pb-10 px-4 sm:px-6 md:pt-32 md:pb-20">
+        <div className="max-w-[88rem] mx-auto w-full">
+          <span className="text-[#3D81E3] text-xs sm:text-sm font-medium uppercase tracking-wider mb-3 block">Our Services</span>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-12 items-end">
             <h1
-              className="text-white text-4xl sm:text-5xl md:text-7xl font-medium leading-[1.05]"
+              className="text-white text-[2.6rem] sm:text-5xl md:text-7xl font-medium leading-[1.05]"
               style={{ letterSpacing: '-0.04em' }}
             >
               Financial Excellence,<br />
@@ -74,33 +76,33 @@ export default function ServicesPage() {
                 Delivered.
               </span>
             </h1>
-            <p className="text-white/60 text-base sm:text-lg md:text-xl leading-relaxed">
+            <p className="text-white/80 text-base sm:text-lg md:text-xl leading-relaxed">
               Comprehensive financial services engineered for high-net-worth individuals, families, and businesses seeking institutional-quality advisory.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Services Grid */}
-      <section className="px-4 sm:px-6 pb-14 sm:pb-24">
+      {/* ── Services Grid ── */}
+      <section className="px-4 sm:px-6 pb-12 sm:pb-24">
         <div className="max-w-[88rem] mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {services.map((service, i) => {
               const Icon = service.icon
               return (
-                <div key={i} className="liquid-glass rounded-2xl p-6 sm:p-8 flex flex-col justify-between min-h-[300px] sm:min-h-[380px] group transition-all duration-300 hover:bg-white/[0.04]">
+                <div key={i} className="liquid-glass rounded-2xl p-6 sm:p-8 flex flex-col justify-between min-h-[280px] sm:min-h-[380px] group transition-all duration-300 hover:bg-white/[0.04]">
                   <div>
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center mb-4 sm:mb-6 group-hover:border-[#3D81E3]/40 group-hover:bg-[#3D81E3]/10 transition-colors">
-                      <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-[#A4F4FD] group-hover:text-[#00d2ff] transition-colors" />
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-white/[0.06] border border-white/15 flex items-center justify-center mb-4 sm:mb-6 group-hover:border-[#3D81E3]/40 group-hover:bg-[#3D81E3]/10 transition-colors">
+                      <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-[#A4F4FD]" />
                     </div>
-                    <h3 className="text-white text-lg sm:text-xl font-medium mb-2 sm:mb-3" style={{ letterSpacing: '-0.02em' }}>
+                    <h3 className="text-white text-base sm:text-xl font-medium mb-2 sm:mb-3" style={{ letterSpacing: '-0.02em' }}>
                       {service.title}
                     </h3>
-                    <p className="text-white/50 text-sm leading-relaxed mb-4 sm:mb-6">{service.desc}</p>
+                    <p className="text-white/70 text-sm leading-relaxed mb-4 sm:mb-6">{service.desc}</p>
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {service.features.map((f) => (
-                      <span key={f} className="px-2.5 py-1 rounded-full text-xs text-white/50 border border-white/10 bg-white/[0.02]">
+                      <span key={f} className="px-2.5 py-1 rounded-full text-xs text-white/65 border border-white/15 bg-white/[0.04]">
                         {f}
                       </span>
                     ))}
@@ -112,25 +114,24 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Process */}
-      <section className="px-4 sm:px-6 py-12 sm:py-24">
+      {/* ── Process ── */}
+      <section className="px-4 sm:px-6 py-10 sm:py-24">
         <div className="max-w-[88rem] mx-auto">
-          <div className="text-center mb-10 sm:mb-16">
-            <span className="text-[#3D81E3] text-xs sm:text-sm font-medium uppercase tracking-wider mb-3 block">Our Process</span>
+          <div className="text-center mb-8 sm:mb-16">
+            <span className="text-[#3D81E3] text-xs sm:text-sm font-medium uppercase tracking-wider mb-2 block">Our Process</span>
             <h2 className="text-white text-3xl sm:text-4xl md:text-5xl font-medium" style={{ letterSpacing: '-0.03em' }}>
               How We Work
             </h2>
           </div>
-
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-5">
             {process_steps.map((step, i) => (
-              <div key={i} className="liquid-glass rounded-2xl p-5 sm:p-7 min-h-[180px] sm:min-h-56 flex flex-col justify-between hover:bg-white/[0.04] transition-all">
-                <span className="text-[#3D81E3]/50 text-3xl sm:text-4xl font-light">{step.step}</span>
+              <div key={i} className="liquid-glass rounded-2xl p-5 sm:p-7 min-h-[160px] sm:min-h-56 flex flex-col justify-between">
+                <span className="text-[#3D81E3]/70 text-2xl sm:text-4xl font-light">{step.step}</span>
                 <div>
-                  <h3 className="text-white text-base sm:text-lg font-medium mb-1 sm:mb-2" style={{ letterSpacing: '-0.02em' }}>
+                  <h3 className="text-white text-sm sm:text-lg font-medium mb-1 sm:mb-2" style={{ letterSpacing: '-0.02em' }}>
                     {step.title}
                   </h3>
-                  <p className="text-white/50 text-xs sm:text-sm leading-relaxed">{step.desc}</p>
+                  <p className="text-white/65 text-xs sm:text-sm leading-relaxed">{step.desc}</p>
                 </div>
               </div>
             ))}
@@ -138,19 +139,19 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* ── CTA ── */}
       <section className="px-4 sm:px-6 pb-20 sm:pb-32">
         <div className="max-w-[88rem] mx-auto">
-          <div className="liquid-glass rounded-2xl sm:rounded-3xl p-8 sm:p-12 md:p-16 text-center shadow-[0_0_40px_rgba(61,129,227,0.1)]">
-            <h2 className="text-white text-2xl sm:text-3xl md:text-5xl font-medium mb-4 sm:mb-5" style={{ letterSpacing: '-0.03em' }}>
+          <div className="liquid-glass rounded-2xl sm:rounded-3xl p-8 sm:p-12 md:p-16 text-center">
+            <h2 className="text-white text-2xl sm:text-3xl md:text-5xl font-medium mb-4" style={{ letterSpacing: '-0.03em' }}>
               Ready to get started?
             </h2>
-            <p className="text-white/60 text-sm sm:text-base md:text-lg max-w-md mx-auto mb-7 sm:mb-10 leading-relaxed">
+            <p className="text-white/75 text-sm sm:text-base md:text-lg max-w-md mx-auto mb-7 sm:mb-10 leading-relaxed">
               Book a complimentary consultation and discover how we can transform your financial future.
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-3 bg-white text-black text-sm font-medium pl-6 pr-2 py-2 rounded-full hover:bg-white/90 transition-all duration-300 group"
+              className="inline-flex items-center gap-2 bg-white text-black text-sm font-medium pl-6 pr-2 py-2.5 rounded-full hover:bg-white/90 transition-all duration-300 group"
             >
               Book Consultation
               <span className="bg-black/10 rounded-full p-2 group-hover:translate-x-1 transition-transform">

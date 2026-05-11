@@ -13,59 +13,39 @@ function AboutBgVideo() {
     const vid = videoRef.current
     if (!vid) return
 
-    const fadeTo = (targetOpacity: number, duration: number, callback?: () => void) => {
+    const fadeTo = (targetOpacity: number, duration: number) => {
       if (rafIdRef.current) cancelAnimationFrame(rafIdRef.current)
-      
       const startOpacity = parseFloat(vid.style.opacity || '0')
       const startTime = performance.now()
-
       const animate = (time: number) => {
         const elapsed = time - startTime
         const progress = Math.min(elapsed / duration, 1)
-        const currentOpacity = startOpacity + (targetOpacity - startOpacity) * progress
-        
-        vid.style.opacity = currentOpacity.toString()
-
-        if (progress < 1) {
-          rafIdRef.current = requestAnimationFrame(animate)
-        } else {
-          if (callback) callback()
-        }
+        vid.style.opacity = (startOpacity + (targetOpacity - startOpacity) * progress).toString()
+        if (progress < 1) rafIdRef.current = requestAnimationFrame(animate)
       }
       rafIdRef.current = requestAnimationFrame(animate)
     }
 
     const handleTimeUpdate = () => {
       if (!vid.duration) return
-      
       const timeLeft = vid.duration - vid.currentTime
       if (timeLeft <= 0.55 && !fadingOutRef.current) {
         fadingOutRef.current = true
         fadeTo(0, 500)
       }
     }
-
     const handlePlay = () => {
-      if (vid.currentTime < 0.1) {
-        fadingOutRef.current = false
-        fadeTo(1, 500)
-      }
+      if (vid.currentTime < 0.1) { fadingOutRef.current = false; fadeTo(1, 500) }
     }
-
     const handleEnded = () => {
       vid.style.opacity = '0'
       if (rafIdRef.current) cancelAnimationFrame(rafIdRef.current)
-      
-      setTimeout(() => {
-        vid.currentTime = 0
-        vid.play()
-      }, 100)
+      setTimeout(() => { vid.currentTime = 0; vid.play() }, 100)
     }
 
     vid.addEventListener('timeupdate', handleTimeUpdate)
     vid.addEventListener('play', handlePlay)
     vid.addEventListener('ended', handleEnded)
-
     return () => {
       if (rafIdRef.current) cancelAnimationFrame(rafIdRef.current)
       vid.removeEventListener('timeupdate', handleTimeUpdate)
@@ -75,19 +55,19 @@ function AboutBgVideo() {
   }, [])
 
   return (
-    <div className="fixed inset-0 z-[-1] overflow-hidden bg-black">
+    <div className="fixed inset-0 z-[-1] overflow-hidden bg-[#060611]">
       <video
         ref={videoRef}
         muted playsInline autoPlay
-        className="absolute inset-0 w-full h-full object-cover -translate-y-[17%]"
+        className="absolute inset-0 w-full h-full object-cover object-center"
         style={{ opacity: 0 }}
         src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260328_115001_bcdaa3b4-03de-47e7-ad63-ae3e392c32d4.mp4"
       />
-      <div className="absolute inset-0 bg-[#060611]/70" />
+      {/* Stronger overlay so text is always readable */}
+      <div className="absolute inset-0 bg-[#060611]/75" />
     </div>
   )
 }
-
 
 const values = [
   { title: 'Integrity First', desc: 'Fiduciary responsibility is our foundation. Every recommendation prioritizes your best interests above all else.' },
@@ -118,64 +98,53 @@ export default function AboutPage() {
   return (
     <div className="relative min-h-screen text-white">
       <AboutBgVideo />
-      
-      {/* Hero */}
-      <section className="relative pt-28 sm:pt-32 pb-12 sm:pb-20 px-4 sm:px-6">
-        <div className="absolute top-20 left-1/3 w-[700px] h-[700px] bg-[#C8A87E]/[0.03] rounded-full blur-[150px] pointer-events-none" />
 
-        <div className="max-w-[88rem] mx-auto">
-          <span className="text-[#C8A87E]/60 text-sm font-medium uppercase tracking-wider mb-4 block">About Us</span>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 items-end">
+      {/* ── Hero — full bleed on mobile ── */}
+      <section className="relative min-h-[60vh] flex flex-col justify-end pt-20 pb-10 px-4 sm:px-6 md:pt-32 md:pb-20">
+        <div className="max-w-[88rem] mx-auto w-full">
+          <span className="text-[#C8A87E] text-xs sm:text-sm font-medium uppercase tracking-wider mb-3 block">About Us</span>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-12 items-end">
             <h1
-              className="text-white text-4xl sm:text-5xl md:text-7xl font-medium leading-[1.05]"
+              className="text-white text-[2.6rem] sm:text-5xl md:text-7xl font-medium leading-[1.05]"
               style={{ letterSpacing: '-0.04em' }}
             >
               Built on Trust,<br />Driven by Results.
             </h1>
-            <p className="text-white/50 text-base sm:text-lg md:text-xl leading-relaxed">
+            <p className="text-white/75 text-base sm:text-lg md:text-xl leading-relaxed">
               Since 2007, Elite Finance has served as a trusted partner for individuals, families, and institutions seeking sophisticated financial guidance and exceptional outcomes.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Story */}
-      <section className="px-4 sm:px-6 pb-16 sm:pb-24">
+      {/* ── Story ── */}
+      <section className="px-4 sm:px-6 pb-12 sm:pb-24">
         <div className="max-w-[88rem] mx-auto">
           <div className="glass-card rounded-2xl sm:rounded-3xl p-6 sm:p-10 md:p-16">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
               <div>
-                <h2
-                  className="text-white text-3xl md:text-4xl font-medium mb-6"
-                  style={{ letterSpacing: '-0.03em' }}
-                >
+                <h2 className="text-white text-2xl sm:text-3xl md:text-4xl font-medium mb-5" style={{ letterSpacing: '-0.03em' }}>
                   Our Story
                 </h2>
-                <div className="space-y-4 text-white/50 text-base leading-relaxed">
-                  <p>
-                    Elite Finance was founded with a singular conviction: that every client deserves the same caliber of financial advisory historically reserved for institutions and ultra-high-net-worth families.
-                  </p>
-                  <p>
-                    What began as a boutique advisory in Manhattan has grown into a comprehensive financial services firm managing over $4.2 billion in client assets across four global offices.
-                  </p>
-                  <p>
-                    Our team of 60+ professionals — including former partners from Goldman Sachs, BlackRock, Deloitte, and J.P. Morgan — brings institutional expertise to every client engagement, regardless of size.
-                  </p>
+                <div className="space-y-4 text-white/70 text-sm sm:text-base leading-relaxed">
+                  <p>Elite Finance was founded with a singular conviction: that every client deserves the same caliber of financial advisory historically reserved for institutions and ultra-high-net-worth families.</p>
+                  <p>What began as a boutique advisory in Manhattan has grown into a comprehensive financial services firm managing over $4.2 billion in client assets across four global offices.</p>
+                  <p>Our team of 60+ professionals — including former partners from Goldman Sachs, BlackRock, Deloitte, and J.P. Morgan — brings institutional expertise to every client engagement, regardless of size.</p>
                 </div>
               </div>
-              <div className="flex flex-col justify-center">
-                <div className="grid grid-cols-2 gap-4">
+              <div className="flex flex-col justify-center mt-6 md:mt-0">
+                <div className="grid grid-cols-2 gap-3 sm:gap-4">
                   {[
                     { value: '60+', label: 'Financial Experts' },
                     { value: '4', label: 'Global Offices' },
                     { value: '$4.2B', label: 'Assets Managed' },
                     { value: '99.2%', label: 'Retention Rate' },
                   ].map((stat, i) => (
-                    <div key={i} className="glass rounded-xl p-5 text-center">
-                      <div className="text-2xl font-semibold text-[#C8A87E] mb-1" style={{ letterSpacing: '-0.03em' }}>
+                    <div key={i} className="glass rounded-xl p-4 sm:p-5 text-center">
+                      <div className="text-xl sm:text-2xl font-semibold text-[#C8A87E] mb-1" style={{ letterSpacing: '-0.03em' }}>
                         {stat.value}
                       </div>
-                      <p className="text-white/40 text-xs">{stat.label}</p>
+                      <p className="text-white/60 text-xs">{stat.label}</p>
                     </div>
                   ))}
                 </div>
@@ -185,30 +154,26 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Values */}
-      <section className="px-4 sm:px-6 pb-16 sm:pb-24">
+      {/* ── Values ── */}
+      <section className="px-4 sm:px-6 pb-12 sm:pb-24">
         <div className="max-w-[88rem] mx-auto">
-          <div className="text-center mb-10 sm:mb-14">
-            <span className="text-[#C8A87E]/60 text-sm font-medium uppercase tracking-wider mb-3 block">Our Values</span>
-            <h2
-              className="text-white text-3xl sm:text-4xl md:text-5xl font-medium"
-              style={{ letterSpacing: '-0.03em' }}
-            >
+          <div className="text-center mb-8 sm:mb-14">
+            <span className="text-[#C8A87E] text-xs sm:text-sm font-medium uppercase tracking-wider mb-2 block">Our Values</span>
+            <h2 className="text-white text-3xl sm:text-4xl md:text-5xl font-medium" style={{ letterSpacing: '-0.03em' }}>
               What Guides Us
             </h2>
           </div>
-
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {values.map((value, i) => (
-              <div key={i} className="glass-card rounded-2xl p-7 min-h-56 flex flex-col justify-between">
-                <div className="w-8 h-8 rounded-full glass flex items-center justify-center mb-5">
+              <div key={i} className="glass-card rounded-2xl p-6 sm:p-7 flex flex-col gap-4">
+                <div className="w-8 h-8 rounded-full glass flex items-center justify-center">
                   <div className="w-2 h-2 rounded-full bg-[#C8A87E]" />
                 </div>
                 <div>
-                  <h3 className="text-white text-lg font-medium mb-2" style={{ letterSpacing: '-0.02em' }}>
+                  <h3 className="text-white text-base sm:text-lg font-medium mb-2" style={{ letterSpacing: '-0.02em' }}>
                     {value.title}
                   </h3>
-                  <p className="text-white/40 text-sm leading-relaxed">{value.desc}</p>
+                  <p className="text-white/65 text-sm leading-relaxed">{value.desc}</p>
                 </div>
               </div>
             ))}
@@ -216,78 +181,67 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Timeline */}
-      <section className="px-4 sm:px-6 pb-16 sm:pb-24">
+      {/* ── Timeline ── */}
+      <section className="px-4 sm:px-6 pb-12 sm:pb-24">
         <div className="max-w-[88rem] mx-auto">
-          <div className="text-center mb-10 sm:mb-14">
-            <span className="text-[#C8A87E]/60 text-sm font-medium uppercase tracking-wider mb-3 block">Milestones</span>
-            <h2
-              className="text-white text-3xl sm:text-4xl md:text-5xl font-medium"
-              style={{ letterSpacing: '-0.03em' }}
-            >
+          <div className="text-center mb-8 sm:mb-14">
+            <span className="text-[#C8A87E] text-xs sm:text-sm font-medium uppercase tracking-wider mb-2 block">Milestones</span>
+            <h2 className="text-white text-3xl sm:text-4xl md:text-5xl font-medium" style={{ letterSpacing: '-0.03em' }}>
               Our Journey
             </h2>
           </div>
-
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {milestones.map((m, i) => (
-              <div key={i} className="glass-card rounded-2xl p-7 min-h-40 flex flex-col justify-between shimmer-line">
-                <span className="text-[#C8A87E]/50 text-3xl font-light">{m.year}</span>
-                <p className="text-white/50 text-sm leading-relaxed mt-4">{m.event}</p>
+              <div key={i} className="glass-card rounded-2xl p-6 sm:p-7 flex flex-col gap-3 shimmer-line">
+                <span className="text-[#C8A87E] text-2xl sm:text-3xl font-light">{m.year}</span>
+                <p className="text-white/70 text-sm leading-relaxed">{m.event}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Team */}
-      <section className="px-4 sm:px-6 pb-16 sm:pb-24">
+      {/* ── Team ── */}
+      <section className="px-4 sm:px-6 pb-12 sm:pb-24">
         <div className="max-w-[88rem] mx-auto">
-          <div className="text-center mb-10 sm:mb-14">
-            <span className="text-[#C8A87E]/60 text-sm font-medium uppercase tracking-wider mb-3 block">Leadership</span>
-            <h2
-              className="text-white text-3xl sm:text-4xl md:text-5xl font-medium"
-              style={{ letterSpacing: '-0.03em' }}
-            >
+          <div className="text-center mb-8 sm:mb-14">
+            <span className="text-[#C8A87E] text-xs sm:text-sm font-medium uppercase tracking-wider mb-2 block">Leadership</span>
+            <h2 className="text-white text-3xl sm:text-4xl md:text-5xl font-medium" style={{ letterSpacing: '-0.03em' }}>
               Our Team
             </h2>
           </div>
-
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {team.map((member, i) => (
-              <div key={i} className="glass-card rounded-2xl p-8 group">
-                <div className="w-14 h-14 rounded-full glass flex items-center justify-center mb-5 group-hover:border-[#C8A87E]/30 transition-colors">
-                  <span className="text-[#C8A87E] text-lg font-medium">
+              <div key={i} className="glass-card rounded-2xl p-6 sm:p-8 group">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full glass flex items-center justify-center mb-4 sm:mb-5">
+                  <span className="text-[#C8A87E] text-base sm:text-lg font-medium">
                     {member.name.split(' ').map(n => n[0]).join('')}
                   </span>
                 </div>
-                <h3 className="text-white text-lg font-medium mb-1" style={{ letterSpacing: '-0.02em' }}>
+                <h3 className="text-white text-base sm:text-lg font-medium mb-1" style={{ letterSpacing: '-0.02em' }}>
                   {member.name}
                 </h3>
-                <p className="text-[#C8A87E]/60 text-sm mb-3">{member.role}</p>
-                <p className="text-white/40 text-sm leading-relaxed">{member.bio}</p>
+                <p className="text-[#C8A87E]/80 text-sm mb-2 sm:mb-3">{member.role}</p>
+                <p className="text-white/65 text-sm leading-relaxed">{member.bio}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
+      {/* ── CTA ── */}
       <section className="px-4 sm:px-6 pb-16 sm:pb-24">
         <div className="max-w-[88rem] mx-auto">
           <div className="glass-strong rounded-2xl sm:rounded-3xl p-8 sm:p-12 md:p-16 text-center glow-gold-sm">
-            <h2
-              className="text-white text-2xl sm:text-3xl md:text-5xl font-medium mb-4 sm:mb-5"
-              style={{ letterSpacing: '-0.03em' }}
-            >
+            <h2 className="text-white text-2xl sm:text-3xl md:text-5xl font-medium mb-4" style={{ letterSpacing: '-0.03em' }}>
               Join Our Story
             </h2>
-            <p className="text-white/50 text-sm sm:text-base md:text-lg max-w-md mx-auto mb-6 sm:mb-8 leading-relaxed">
+            <p className="text-white/70 text-sm sm:text-base md:text-lg max-w-md mx-auto mb-7 leading-relaxed">
               Whether you&apos;re an individual seeking guidance or a business needing advisory, we&apos;re here for you.
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-3 bg-gradient-to-r from-[#C8A87E] to-[#B8956A] text-[#060611] text-base font-medium pl-7 pr-2 py-2.5 rounded-full hover:shadow-lg hover:shadow-[#C8A87E]/20 transition-all duration-300"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-[#C8A87E] to-[#B8956A] text-[#060611] text-sm sm:text-base font-medium pl-6 pr-2 py-2.5 rounded-full hover:shadow-lg hover:shadow-[#C8A87E]/20 transition-all duration-300"
             >
               Get In Touch
               <span className="bg-[#060611]/20 rounded-full p-2">
